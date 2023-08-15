@@ -42,6 +42,39 @@ async function run() {
       res.send(result);
     });
 
+    //!get-> Read : (specific id)
+    app.get("/users/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const reselt = await userCollection.findOne(query);
+      res.send(reselt);
+    });
+
+    //!put--> Update : (CRUD)
+    app.put("/users/:id", async (req, res) => {
+      const id = req.params.id;
+      const user = req.body;
+      const filter = { _id: new ObjectId(id) };
+      const options = { upsert: true };
+      const updateInfo = {
+        $set: {
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email,
+          phone: user.phone,
+          photoUrl: user.photoUrl,
+          gender: user.gender,
+          isActive: user.isActive,
+        },
+      };
+      const result = await userCollection.updateOne(
+        filter,
+        updateInfo,
+        options
+      );
+      res.send(result);
+    });
+
     //!delete-- Delete : (CRUD)
     app.delete("/users/:id", async (req, res) => {
       const id = req.params.id;
