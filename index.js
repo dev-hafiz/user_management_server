@@ -23,7 +23,7 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    // Connect the client to the server
+    //Connect the client to the server
     await client.connect();
 
     //Database and Collection
@@ -36,14 +36,14 @@ async function run() {
       res.send(result);
     });
 
-    //!get--> Read : (CRUD) (Default all get)
+    //!Get--> Read : (CRUD) (Default all get)
     app.get("/users", async (req, res) => {
       const cursor = userCollection.find();
       const result = await cursor.toArray();
       res.send(result);
     });
 
-    //!get-> Read : (specific id)
+    //!Get-> Read : (specific id)
     app.get("/users/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) };
@@ -51,7 +51,7 @@ async function run() {
       res.send(reselt);
     });
 
-    //!put--> Update : (CRUD)
+    //!Put--> Update : (CRUD)
     app.put("/users/:id", async (req, res) => {
       const id = req.params.id;
       const user = req.body;
