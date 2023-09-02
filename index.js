@@ -93,7 +93,7 @@ async function run() {
 }
 run().catch(console.dir);
 
-// root route
+// Root route
 app.get("/", (req, res) => {
   res.send("Live User Management Server is running...");
 });
