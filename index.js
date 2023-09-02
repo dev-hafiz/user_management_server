@@ -86,7 +86,7 @@ async function run() {
 
     // Ping to Confirm a Database
     await client.db("admin").command({ ping: 1 });
-    console.log("Pinged to connected successfully");
+    console.log("Pinged to Connected Successfully");
   } finally {
     // await client.close();
   }
