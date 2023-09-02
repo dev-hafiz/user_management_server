@@ -12,7 +12,7 @@ app.use(express.json());
 //MongoDB URI Connection
 const uri = `mongodb+srv://${process.env.USER_NAME_SECRET}:${process.env.PASSWORD_SECRET}@cluster0.luy9u.mongodb.net/?retryWrites=true&w=majority`;
 
-// Create a MongoClient
+//MongoClient
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
