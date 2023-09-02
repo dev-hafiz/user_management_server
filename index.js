@@ -76,7 +76,7 @@ async function run() {
       res.send(result);
     });
 
-    //!delete-- Delete : (CRUD)
+    //!Delete-- Delete : (CRUD)
     app.delete("/users/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) };
