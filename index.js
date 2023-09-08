@@ -56,7 +56,6 @@ async function run() {
     //!Put--> Update : (CRUD)
     app.put("/users/:id", async (req, res) => {
       const id = req.params.id;
-      console.log(id);
       const user = req.body;
       const filter = { _id: new ObjectId(id) };
       const options = { upsert: true };
