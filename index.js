@@ -4,7 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 const app = express();
 
-// Port to start the server on local host
+// Port to start the server on local and cloud host
 const port = process.env.PORT || 5000;
 
 // Middleware & Parser
