@@ -31,21 +31,21 @@ async function run() {
     //Database and Collection
     const userCollection = client.db("userManagement").collection("users");
 
-    //!Post--> Create : (CRUD)
+    //!Post --> Create : (CRUD)
     app.post("/users", async (req, res) => {
       const user = req.body;
       const result = await userCollection.insertOne(user);
       res.send(result);
     });
 
-    //!Get--> Read : (CRUD) (Default all get)
+    //!Get --> Read : (CRUD) (Default all get)
     app.get("/users", async (req, res) => {
       const cursor = userCollection.find();
       const result = await cursor.toArray();
       res.send(result);
     });
 
-    //!Get-> Read : (specific id)
+    //!Get --> Read : (specific id)
     app.get("/users/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) };
@@ -53,7 +53,7 @@ async function run() {
       res.send(reselt);
     });
 
-    //!Put--> Update : (CRUD)
+    //!Put --> Update : (CRUD)
     app.put("/users/:id", async (req, res) => {
       const id = req.params.id;
       const user = req.body;
@@ -78,7 +78,7 @@ async function run() {
       res.send(result);
     });
 
-    //!Delete-- Delete : (CRUD)
+    //!Delete -- Delete : (CRUD)
     app.delete("/users/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) };
