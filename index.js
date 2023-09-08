@@ -31,7 +31,7 @@ async function run() {
     //Database and Collection
     const userCollection = client.db("userManagement").collection("users");
 
-    //!post--> Create : (CRUD)
+    //!Post--> Create : (CRUD)
     app.post("/users", async (req, res) => {
       const user = req.body;
       const result = await userCollection.insertOne(user);
